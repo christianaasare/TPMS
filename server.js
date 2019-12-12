@@ -68,7 +68,7 @@ app.post("/auth/saml/callback",passport.authenticate("saml", {
   }),
   function(req, res) {
     // console.log("Logging something");
-    res.redirect("https://tpms-ui.herokuapp.com");
+    res.redirect("https://yahoo.com");
   }
 );
 
