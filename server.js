@@ -62,14 +62,13 @@ app.get("/logout", function(req, res) {
   res.end("You have logged out.");
 });
 
-app.post(
-  "/auth/saml/callback",
-  passport.authenticate("saml", {
+app.post("/auth/saml/callback",passport.authenticate("saml", {
     failureRedirect: "/error",
-    successRedirect:"/",
+    successRedirect: "/",
     failureFlash: true
   }),
   function(req, res) {
+    console.log("Logging something");
     res.redirect("/");
   }
 );
