@@ -74,14 +74,16 @@ app.post("/auth/saml/callback",passport.authenticate("saml", {
 
 app.all("*", function(req, res, next) {
   if (req.isAuthenticated() || process.env.NODE_ENV !== "production") {
-    next();
+    // next();
+    res.sendFile(path.join(__dirname + "/dist/tpms/index.html"));
+
   } else {
     res.redirect("/login");
   }
 });
-app.get("/*", function(req, res) {
-  res.sendFile(path.join(__dirname + "/dist/tpms/index.html"));
-});
+// app.get("/*", function(req, res) {
+//   res.sendFile(path.join(__dirname + "/dist/tpms/index.html"));
+// });
 
 // Start the app by listening on the default Heroku port
 app.listen(process.env.PORT || 8080);
