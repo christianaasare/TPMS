@@ -66,6 +66,7 @@ app.post(
   "/auth/saml/callback",
   passport.authenticate("saml", {
     failureRedirect: "/error",
+    successRedirect:"/",
     failureFlash: true
   }),
   function(req, res) {
