@@ -64,12 +64,11 @@ app.get("/logout", function(req, res) {
 
 app.post("/auth/saml/callback",passport.authenticate("saml", {
     failureRedirect: "/error",
-    successRedirect: "/",
-    failureFlash: true
+    failureFlash: false
   }),
   function(req, res) {
-    console.log("Logging something");
-    res.redirect("/");
+    // console.log("Logging something");
+    res.redirect("https://tpms-ui.herokuapp.com");
   }
 );
 
