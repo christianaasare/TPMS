@@ -10,12 +10,13 @@ import { ProjectsComponent } from './screens/admin/components/projects/projects.
 
 const routes: Routes = [
   // { path: 'home', component:AppComponent},
-  { path: 'admin', component:D},
-  {path: 'developer', component:DashboardComponent},
+  { path: 'admin', component: D},
+  {path: 'developer', component: DashboardComponent},
   // {path:'', redirectTo:'admin', pathMatch:'full'}
-  {path:'admin/hour', component:HourComponent},
-  {path:'developer/hour', component:HoursComponent},
-  {path:'addproject',component:ProjectsComponent}
+   {path: 'admin/hour', component: HourComponent},
+  {path: 'developer/hour', component: HoursComponent},
+  {path: 'addproject', component: ProjectsComponent},
+  // {path: 'hours', component: HourComponent}
 
 ];
 

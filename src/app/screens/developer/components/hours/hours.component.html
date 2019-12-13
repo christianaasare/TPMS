@@ -1,37 +1,38 @@
 <!-- Default form subscription -->
-<form class="text-center border border-light p-5" action="#!">
+<section class="page-section">
+  <div class="container">
+ <form class="text-center border border-light p-5" [formGroup]="newDevHourForm" (ngSubmit)="onSubmit()" action="#!">
 
     <p class="h4 mb-4">Log Hours</p>
 
     <p>Thanks for your hardwork! Time to log your hours.</p>
-<!-- 
+
     <p>
         <a href="" target="_blank">See the last newsletter</a>
-    </p> -->
+    </p> 
 
     <!-- Name -->
-    <input type="text"  formControlName= "name"id="defaultSubscriptionFormPassword" class="form-control mb-4" placeholder="Name">
+     <input type="text"  formControlName= "name" id="defaultSubscriptionFormPassword" class="form-control mb-4" placeholder="Name" required> 
 
     <!-- Email -->
-    <input type="email" formControlName= "title"id="defaultSubscriptionFormEmail" class="form-control mb-4" placeholder="Title">
+    <input type="email" formControlName= "title" id="defaultSubscriptionFormEmail" class="form-control mb-4" placeholder="Title" required>
     <!-- Name -->
-    <input type="text"  formControlName= "activity" id="defaultSubscriptionFormPassword" class="form-control mb-4" placeholder="Activity">
+     <input type="text"  formControlName= "activity" id="defaultSubscriptionFormPassword" class="form-control mb-4" placeholder="Activity" required>
+  <!--  Name -->
+    <input type="text"  formControlName= "hours" id="defaultSubscriptionFormPassword" class="form-control mb-4" placeholder="Hours" required>
     <!-- Name -->
-    <input type="text"  formControlName= "hours" id="defaultSubscriptionFormPassword" class="form-control mb-4" placeholder="Hours">
+    <input type="text"  formControlName= "date" id="defaultSubscriptionFormPassword" class="form-control mb-4" placeholder="Date" required>
     <!-- Name -->
-    <input type="text"  formControlName= "date" id="defaultSubscriptionFormPassword" class="form-control mb-4" placeholder="Date">
-    <!-- Name -->
-    <input type="text"  formControlName= "comments"id="defaultSubscriptionFormPassword" class="form-control mb-4" placeholder="Comments">
+    <input type="text"  formControlName= "comments"id="defaultSubscriptionFormPassword" class="form-control mb-4" placeholder="Comments" required>
     
-
 
     <!-- Sign in button -->
     <button class="btn btn-info btn-block" type="submit" onsubmit="alert">Submit</button> 
-    <!-- -->
+   
+</form> 
 
-
-</form>
 <!-- Default form subscription -->
+
 
 
 
@@ -70,3 +71,5 @@
   <a href="" class="btn btn-default btn-rounded mb-4" data-toggle="modal" data-target="#modalSubscriptionForm">Launch
     Modal Subscription Form</a>
 </div>
+</div>
+</section>

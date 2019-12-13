@@ -31,10 +31,12 @@
 
       <!-- Nav Item - Pages Collapse Menu -->
       <li class="nav-item">
+         
         <a class="nav-link " href="#"  aria-expanded="true" aria-controls="collapseTwo">
           <i class="fas fa-fw fa-cog"></i>
-          <span>Projects</span>
+          <span>Projects</span>          
         </a>
+     
         <!-- <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Custom Components:</h6>
@@ -52,8 +54,9 @@
         </a>
        
       </li>
-
+      <!-- <button mat-button [matMenuTriggerFor]="projects">try </button> -->
       <li class="nav-item">
+          
         <a class="nav-link " href="#"  aria-expanded="true" aria-controls="collapseUtilities">
           <i class="fas fa-fw fa-wrench"></i>
           <span>Hours</span>
@@ -81,9 +84,9 @@
           </button>
 
           <!-- Topbar Search -->
-          <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+          <form [formGroup]="search"(ngSubmit)="onSubmit" class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
             <div class="input-group">
-              <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+              <input formControlName="search" type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
               <div class="input-group-append">
                 <button class="btn btn-primary" type="button">
                   <i class="fas fa-search fa-sm"></i>
@@ -102,9 +105,9 @@
               </a>
               <!-- Dropdown - Messages -->
               <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in" aria-labelledby="searchDropdown">
-                <form class="form-inline mr-auto w-100 navbar-search">
+                <form [formGroup]="search" class="form-inline mr-auto w-100 navbar-search">
                   <div class="input-group">
-                    <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+                    <input formControlName="search-1" type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
                     <div class="input-group-append">
                       <button class="btn btn-primary" type="button">
                         <i class="fas fa-search fa-sm"></i>
