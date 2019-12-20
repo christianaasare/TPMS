@@ -28,10 +28,12 @@ export class DevelopersComponent implements OnInit {
     // {value: 'DBMS'}
   ];
   // projselected = 'option2';
-  incomingProject = { project_id: 2, title: "" };
+
+  assignedprojects = { project_id: 2, title: "" };
+
+  // incomingProject = { project_id: 2, title: "" };
 
 
-  typesOfShoes: string[] = ['Data', 'Threads', 'API'];
 
   myControl = new FormControl({
 
@@ -47,6 +49,9 @@ export class DevelopersComponent implements OnInit {
   projectsObservable:Observable<ProjectInterface[]>;
   project = [];
 
+  assignedObservable:Observable<ProjectInterface[]>;
+  assign =[];
+
   ngOnInit() {
       this.devService.getDevelopers().subscribe(response => {
       this.developers = response;
@@ -56,38 +61,40 @@ export class DevelopersComponent implements OnInit {
       this.projects = response;
     });
 
-    this.ProjectService
-    .getAssignedProject(localStorage.getItem("empId"))
-    .subscribe(response => {
-      // this.incomingProject.project_id = response.project_id;
-      localStorage.setItem("pid", response.project_id.toString());
-      this.incomingProject.title = response.title;
-    });
+ 
+ 
+//     this.ProjectService.assignProjecttoDev().subscribe(response => {
+//         this.projects = response;
+//       });
+
+// }
 
   }
  
-
-  onselectionchange() {
-    this.ProjectService
-      .assignProjecttoDev(this.myControl.value)
-      .subscribe(result=>console.log(result));
-
-}
-
-
 
 curremp:string;
 currproj:string;
 
 devMethod(emp){
-  this.curremp=emp
-  console.log(emp)
+  this.curremp=emp.emp_name
+  // console.log(emp)
+
+  this.ProjectService
+  .getAssignedProject(emp.emp_id)
+  .subscribe(response => {
+    // this.incomingProject.project_id = response.project_id;
+    // localStorage.setItem("pid", response.project_id.toString());
+    // this.assignedprojects.title = response.title;
+    console.log(response);
+    
+  });
+
   
 }
 
 projMethod(proj){
   this.currproj=proj
-  console.log(proj)
+  // console.log(proj)
   
 }
 

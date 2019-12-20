@@ -12,17 +12,16 @@
     <mat-card-header>
       <div mat-card-avatar class="example-header-image"></div>
     </mat-card-header>
-    <form action="" [formGroup]="hourform" (ngSubmit)="onSubmit()">
     <mat-form-field>
       <mat-label>Select a Developer</mat-label>
       <mat-select (selectionChange)="devMethod($event.value)">
-        <mat-option  *ngFor="let developer of developers" [value]="developer.emp_name">
+        <mat-option  *ngFor="let developer of developers" [value]="developer">
         {{developer.emp_name}}
       </mat-option>
       </mat-select>
     </mat-form-field>
     
-  </form>
+ 
     <p>Selected developer: {{curremp}}</p>
 
   </mat-card>
@@ -59,18 +58,17 @@
     <mat-form-field>
       <mat-label>Assign Project</mat-label>
       <mat-select (selectionChange)="projMethod($event.value)">
-        <mat-option  *ngFor="let project of projects" [value]="project.title">
+        <mat-option  *ngFor="let project of projects" [value]="project">
         {{project.title}}
       </mat-option>
       </mat-select>
     </mat-form-field>
     
-    <!-- <p>Selected project: {{currproj}}</p> -->
-    <mat-selection-list #shoes>
-      <mat-list-option *ngFor="let shoe of typesOfShoes">
-        {{shoe}}
-      </mat-list-option>
-    </mat-selection-list>
+    <p>Selected project: {{currproj}}</p>
+
+    <mat-list  *ngFor="let assignedproject of assignedprojects" role="list">
+      {{assignedproject}}
+    </mat-list>
     
     <!-- <p>
       Options selected: {{shoes.selectedOptions.selected.length}}
