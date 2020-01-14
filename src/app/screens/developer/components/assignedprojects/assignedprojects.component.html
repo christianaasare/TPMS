@@ -49,8 +49,12 @@
 
           <!-- SELECTION OF PROJECT -->
           <th mat-header-cell *matHeaderCellDef style="font-size: xx-large;">          
-          <mat-select ng-model-options="{incomingProject}">            
+          <!-- <mat-select ng-model-options="{incomingProject}">            
             <mat-option *ngFor="let title of hourform" [value]="incomingProject.title">{{incomingProject.title}}</mat-option>   
+          </mat-select></th> -->
+
+          <mat-select ng-model-options="{incomingProject}">            
+            <mat-option >{{incomingProject.title}}</mat-option>   
           </mat-select></th>
           <!-- <th mat-header-cell *matHeaderCellDef style="font-size: xx-large;">{{incomingProject.title}} </th> -->
           <td mat-cell *matCellDef="let element"> 
