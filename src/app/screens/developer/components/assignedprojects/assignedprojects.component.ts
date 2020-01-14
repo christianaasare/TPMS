@@ -36,6 +36,7 @@ const ELEMENT_DATA: PeriodicElement[] = [
 export class AssignedprojectsComponent implements OnInit {
   incomingProject = { project_id: 2, title: '' };
   showAlert: boolean = false;
+  selected = 'option';
 
   hourform = new FormGroup({
     project_hours: new FormControl(''),
