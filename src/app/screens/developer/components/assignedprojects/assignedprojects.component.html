@@ -50,7 +50,7 @@
           <!-- SELECTION OF PROJECT -->
           <th mat-header-cell *matHeaderCellDef style="font-size: xx-large;">  
             <mat-select>              
-              <mat-option mat-cell *matCellDef="let incomingProject" [value]="incomingProject.title">
+              <mat-option *ngFor="let incomingProject" [value]="title">
                 {{incomingProject.title}}
               </mat-option>
             </mat-select>        

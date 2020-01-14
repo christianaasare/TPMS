@@ -6,6 +6,7 @@ export interface PeriodicElement {
   title: string;
   date: string;
   hours: number;
+ // action: string;
   // project_id: number;
 }
 
@@ -28,7 +29,7 @@ const ELEMENT_DATA: PeriodicElement[] = [
   styleUrls: ["./hours.component.css"]
 })
 export class HoursComponent implements OnInit {
-  displayedColumns: string[] = ["title", "date", "hours"];
+  displayedColumns: string[] = ["title", "date", "hours", "action"];
   dataSource = [];
 
   // applyFilter(filterValue: string) {
