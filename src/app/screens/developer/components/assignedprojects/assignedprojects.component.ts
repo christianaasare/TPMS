@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, NgModule } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, FormsModule } from '@angular/forms';
 import { DomSanitizer } from '@angular/platform-browser';
 import { MatIconRegistry } from '@angular/material/icon';
 import { ProjectInterface } from 'src/app/screens/project-interface';
@@ -8,6 +8,7 @@ import { Projectlogging } from 'src/app/projectlogging';
 
 import { ProjectloggingService } from 'src/app/projectlogging.service';
 import { ProjectService } from 'src/app/project.service';
+
 
 export interface PeriodicElement {
   title: string;
@@ -28,6 +29,7 @@ const ELEMENT_DATA: PeriodicElement[] = [
   }
 ];
 
+
 @Component({
   selector: 'app-assignedprojects',
   templateUrl: './assignedprojects.component.html',
@@ -37,7 +39,7 @@ export class AssignedprojectsComponent implements OnInit {
   incomingProject = { project_id: 2, title: '' };
   showAlert: boolean = false;
   // selected = 'option';
-
+  selectedProject: string;
   hourform = new FormGroup({
     project_hours: new FormControl(''),
     volunteering_hours: new FormControl(''),
