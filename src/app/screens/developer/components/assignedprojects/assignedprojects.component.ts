@@ -39,7 +39,7 @@ export class AssignedprojectsComponent implements OnInit {
   incomingProject = { project_id: 2, title: '' };
   showAlert: boolean = false;
   // selected = 'option';
-  selectedProject: string;
+ // selectedProject: string;
   hourform = new FormGroup({
     project_hours: new FormControl(''),
     volunteering_hours: new FormControl(''),
