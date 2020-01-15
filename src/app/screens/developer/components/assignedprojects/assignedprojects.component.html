@@ -50,16 +50,21 @@
           <!-- SELECTION OF PROJECT -->
           <th mat-header-cell *matHeaderCellDef style="font-size: xx-large;">
 
-         <!-- <mat-select >            
+         <mat-select >            
+              <mat-option >
+                {{incomingProject.title}}</mat-option>   
+            </mat-select></th>
+         
+           <!-- <mat-select >            
               <mat-option *ngFor="let item of incomingProject" [value]="item.title">
                 {{item.title}}</mat-option>   
             </mat-select></th>
           -->
-            <mat-select (selectionChange)="assigedProjectMethod($event.value)">             
+            <!-- <mat-select (selectionChange)="assigedProjectMethod($event.value)">             
               <mat-option *ngFor="let project of incomingProject" [value]="project">               
                 {{project.title}}             
               </mat-option>           
-            </mat-select></th>
+            </mat-select></th> -->
 
           <!-- <th mat-header-cell *matHeaderCellDef style="font-size: xx-large;">{{incomingProject.title}} </th> -->
           <td mat-cell *matCellDef="let element"> 
