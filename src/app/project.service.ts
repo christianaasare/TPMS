@@ -27,7 +27,7 @@ export class ProjectService {
 
   getAssignedProject(empId: string): Observable<ProjectInterface> {
     return this.http.get<ProjectInterface>(
-      this.projectUrl + '/dev/assign/' + empId
+      this.projectUrl + '/projects/assigned/' + empId
     );
   }
 

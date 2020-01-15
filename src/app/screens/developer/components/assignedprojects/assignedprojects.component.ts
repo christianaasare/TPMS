@@ -54,6 +54,7 @@ export class AssignedprojectsComponent implements OnInit {
     private projectService: ProjectService
   ) {}
   newProject = '';
+  assingProject = [{title:"howm"}];
   displayedColumns: string[] = [
     'Web Services',
     'Volunteering',
@@ -72,9 +73,10 @@ export class AssignedprojectsComponent implements OnInit {
     this.projectService
       .getAssignedProject(localStorage.getItem('empId'))
       .subscribe(response => {
-        // this.incomingProject.project_id = response.project_id;
+       this.incomingProject.project_id = response.project_id;
         localStorage.setItem('pid', response.project_id.toString());
         this.incomingProject.title = response.title;
+
       });
 
   }
