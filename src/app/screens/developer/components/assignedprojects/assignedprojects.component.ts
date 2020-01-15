@@ -39,10 +39,6 @@ export class AssignedprojectsComponent implements OnInit {
   incomingProject = { project_id: 2, title: '' };
   showAlert: boolean = false;
 
-  assignedprojects = [{ project_id: 1, title: "Devs projects appear here" }]
-
-  // selected = 'option';
- // selectedProject: string;
   hourform = new FormGroup({
     project_hours: new FormControl(''),
     volunteering_hours: new FormControl(''),
@@ -58,11 +54,9 @@ export class AssignedprojectsComponent implements OnInit {
   ) {}
 
 
-  // assignedObservable:Observable<ProjectInterface[]>;
-
-  assign = [];
+ // assign = [];
   newProject = '';
-  assingProject = [{title:"howm"}];
+ // assingProject = [{title:"howm"}];
   displayedColumns: string[] = [
     'Web Services',
     'Volunteering',
@@ -77,8 +71,7 @@ export class AssignedprojectsComponent implements OnInit {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
- 
-  
+
   ngOnInit() {
     this.projectService
       .getAssignedProject(localStorage.getItem('empId'))
@@ -90,29 +83,29 @@ export class AssignedprojectsComponent implements OnInit {
       });
 
   }
-  
-  currpro:string;
-  // currproj:string;
 
-  assigedProjectMethod(pro) {
-    // this.currpro = pro.title;
-    // this.currentDevsId=emp.emp_id
-    // console.log(emp)
-    this.projectService
-    .getAssignedProject(pro.emp_id)
-    .subscribe(response => {
-      // this.incomingProject.project_id = response.project_id;
-      // localStorage.setItem("pid", response.project_id.toString());
-      // this.assignedprojects.length=0
-      this.assignedprojects[0].project_id = response.project_id;
-      this.assignedprojects[0].title = response.title;
+  // currpro:string;
+  // // currproj:string;
 
-      console.log(response);
+  // assigedProjectMethod(pro) {
+  //   // this.currpro = pro.title;
+  //   // this.currentDevsId=emp.emp_id
+  //   // console.log(emp)
+  //   this.projectService
+  //   .getAssignedProject(pro.emp_id)
+  //   .subscribe(response => {
+  //     // this.incomingProject.project_id = response.project_id;
+  //     // localStorage.setItem("pid", response.project_id.toString());
+  //     // this.assignedprojects.length=0
+  //     this.assignedprojects[0].project_id = response.project_id;
+  //     this.assignedprojects[0].title = response.title;
 
-    });
+  //     console.log(response);
+
+  //   });
 
 
-  }
+  // }
 
   sickFieldChecked(event) {
     // tslint:disable-next-line: triple-equals
