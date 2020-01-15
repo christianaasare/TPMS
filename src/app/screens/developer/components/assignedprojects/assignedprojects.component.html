@@ -49,15 +49,15 @@
 
           <!-- SELECTION OF PROJECT -->
           <th mat-header-cell *matHeaderCellDef style="font-size: xx-large;">  
-            <mat-select>              
+            <!-- <mat-select>              
               <mat-option *ngFor="let item of incomingProject" >
                 {{item.title}}
               </mat-option>
            
-            </mat-select>        
-          <!-- <mat-select ng-model-options="{incomingProject}">            
-            <mat-option *ngFor="let title of hourform" [value]="incomingProject.title">{{incomingProject.title}}</mat-option>   
-          </mat-select></th> -->
+            </mat-select>         -->
+          <mat-select ng-model-options="{incomingProject}">            
+            <mat-option *ngFor="let project of incomingProject" [value]="incomingProject.title">{{incomingProject.title}}</mat-option>   
+          </mat-select></th>
           <!-- <select matNativeControl [(ngModel)]="selectedProject" name="incomingProject">            
             <option *ngFor="let project of hourform" [value]="incomingProject.title">
               {{incomingProject.title}}
