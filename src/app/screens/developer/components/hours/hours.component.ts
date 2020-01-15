@@ -1,6 +1,7 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from "@angular/material/table";
-import { AppService } from "src/app/services/app.service";
+import { AppService } from 'src/app/services/app.service';
+import { DialogBoxComponent } from '../../../../dialog-box/dialog-box.component';
 
 export interface PeriodicElement {
   title: string;

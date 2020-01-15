@@ -47,6 +47,7 @@ import {MatListModule} from '@angular/material/list';
 
 import { ViewChild, HostListener, AfterViewInit, ChangeDetectorRef } from '@angular/core';
 import { ReportComponent } from './screens/admin/components/report/report.component';
+import { DialogBoxComponent } from './dialog-box/dialog-box.component';
 
 
 
@@ -66,6 +67,7 @@ import { ReportComponent } from './screens/admin/components/report/report.compon
     VerifyComponent,
     NavComponent,
     ReportComponent,
+    DialogBoxComponent,
 
   ],
   imports: [
@@ -90,11 +92,9 @@ import { ReportComponent } from './screens/admin/components/report/report.compon
     MatSelectModule,
     MatAutocompleteModule,
     MatListModule,
-    
-
-
-
-
+  ],
+  entryComponents: [
+    DialogBoxComponent
   ],
   providers: [{provide: MAT_DATE_LOCALE, useValue: 'en-GB'}, CookieService ],
   bootstrap: [AppComponent]
