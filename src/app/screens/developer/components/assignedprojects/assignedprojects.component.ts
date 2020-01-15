@@ -38,6 +38,9 @@ const ELEMENT_DATA: PeriodicElement[] = [
 export class AssignedprojectsComponent implements OnInit {
   incomingProject = { project_id: 2, title: '' };
   showAlert: boolean = false;
+
+  assignedprojects = [{ project_id: 1, title: "Devs projects appear here" }]
+
   // selected = 'option';
  // selectedProject: string;
   hourform = new FormGroup({
@@ -53,6 +56,11 @@ export class AssignedprojectsComponent implements OnInit {
     private plog: ProjectloggingService,
     private projectService: ProjectService
   ) {}
+
+
+  // assignedObservable:Observable<ProjectInterface[]>;
+
+  assign = [];
   newProject = '';
   assingProject = [{title:"howm"}];
   displayedColumns: string[] = [
@@ -69,6 +77,8 @@ export class AssignedprojectsComponent implements OnInit {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
+ 
+  
   ngOnInit() {
     this.projectService
       .getAssignedProject(localStorage.getItem('empId'))
@@ -78,6 +88,29 @@ export class AssignedprojectsComponent implements OnInit {
         this.incomingProject.title = response.title;
 
       });
+
+  }
+  
+  currpro:string;
+  // currproj:string;
+
+  assigedProjectMethod(pro) {
+    // this.currpro = pro.title;
+    // this.currentDevsId=emp.emp_id
+    // console.log(emp)
+    this.projectService
+    .getAssignedProject(pro.emp_id)
+    .subscribe(response => {
+      // this.incomingProject.project_id = response.project_id;
+      // localStorage.setItem("pid", response.project_id.toString());
+      // this.assignedprojects.length=0
+      this.assignedprojects[0].project_id = response.project_id;
+      this.assignedprojects[0].title = response.title;
+
+      console.log(response);
+
+    });
+
 
   }
 
@@ -147,4 +180,7 @@ export class AssignedprojectsComponent implements OnInit {
     // Prevent Saturday and Sunday from being selected.
     return day !== 0 && day !== 6;
   }
+
+
+
 }

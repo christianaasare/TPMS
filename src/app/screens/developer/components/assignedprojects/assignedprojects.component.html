@@ -48,24 +48,19 @@
         <ng-container matColumnDef="Web Services">
 
           <!-- SELECTION OF PROJECT -->
-          <th mat-header-cell *matHeaderCellDef style="font-size: xx-large;">  
-            <!-- <mat-select>              
-              <mat-option *ngFor="let item of incomingProject" >
-                {{item.title}}
-              </mat-option>
-           
-            </mat-select>         -->
-          <!-- <mat-select ng-model-options="{incomingProject}">            
-            <mat-option *ngFor="let project of incomingProject" [value]="incomingProject.title">{{incomingProject.title}}</mat-option>   
-          </mat-select></th> -->
-          <!-- <select matNativeControl [(ngModel)]="selectedProject" name="incomingProject">            
-            <option *ngFor="let project of hourform" [value]="incomingProject.title">
-              {{incomingProject.title}}
-            </option>
-          </select> -->
-          <mat-select ng-model-options="{incomingProject}">            
-            <mat-option >{{incomingProject.title}}</mat-option>   
-          </mat-select></th>
+          <th mat-header-cell *matHeaderCellDef style="font-size: xx-large;">
+
+         <!-- <mat-select >            
+              <mat-option *ngFor="let item of incomingProject" [value]="item.title">
+                {{item.title}}</mat-option>   
+            </mat-select></th>
+          -->
+            <mat-select (selectionChange)="assigedProjectMethod($event.value)">             
+              <mat-option *ngFor="let project of incomingProject" [value]="project">               
+                {{project.title}}             
+              </mat-option>           
+            </mat-select></th>
+
           <!-- <th mat-header-cell *matHeaderCellDef style="font-size: xx-large;">{{incomingProject.title}} </th> -->
           <td mat-cell *matCellDef="let element"> 
             <input required="" placeholder="hours" autofocus type="text" maxlength="1" oninput="this.value=this.value.replace(/[^0-9]/g,'');" min="0" max="9"
