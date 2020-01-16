@@ -64,7 +64,7 @@ app.get("/logout", function (req, res) {
   res.clearCookie('ttemail')
   req.logout();
   res.redirect("https://turntabl.io");
-  // res.end("You have logged out.");
+  // res.end("You have logged out succesffuly.");
 });
 
 app.post(
