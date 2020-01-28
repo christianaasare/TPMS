@@ -22,7 +22,7 @@ export class VerifyComponent implements OnInit {
   role: any;
 
   ngOnInit() {
-    this.employeeService.developerName.subscribe(name => {
+   this.employeeService.developerName.subscribe(name => {
       this.userName = name
     });
 
@@ -64,6 +64,7 @@ export class VerifyComponent implements OnInit {
                         localStorage.setItem("empId", emp_id.toString());
                         this.isLoading = false;
                         this.router.navigate(["developer/projects"]);
+
                       }
                     })
                   }
