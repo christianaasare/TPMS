@@ -83,7 +83,7 @@ export function initializeApp(appConfigService: ConfigSettingsService) {
   
   providers: [
     ConfigSettingsService,
-    {provide: MAT_DATE_LOCALE, useValue: 'en-GB'},
+    {provide: MAT_DATE_LOCALE, useValue: 'en-GB'},CookieService,
     {provide: APP_INITIALIZER,useFactory: initializeApp, deps: [ConfigSettingsService], multi: true}],
      bootstrap: [AppComponent]
 })

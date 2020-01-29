@@ -1,10 +1,12 @@
-{
-  
+    {
+        "env": {
+            "name":"Dev"
+        },
          
-    "endPointUrl" : {
-         
-
-         "projectUrl" : "https://project.services.turntabl.io",
-         "developerService" :"https://employee.services.turntabl.io"
-     }
-    } 
+        "apiServer" : {
+            "project" :"https://project.services.turntabl.io",
+            "employee" :"https://employee.services.turntabl.io"
+        }
+    }
+    
+    

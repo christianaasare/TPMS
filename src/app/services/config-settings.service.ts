@@ -33,7 +33,7 @@ export interface IAppConfig {
   }
 
   apiServer: {
-      link1:string,
-      link2:string,
+      project:string,
+      employee:string,
   }
 }
