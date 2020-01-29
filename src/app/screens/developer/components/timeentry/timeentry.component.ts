@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { FormGroup, FormControl } from '@angular/forms';
-import { ProjectloggingService } from 'src/app/services/projectlogging.service';
+import { ProjectloggingService } from 'src/app/services/projectloggingService';
 import { ProjectService } from 'src/app/services/project.service';
 
 
