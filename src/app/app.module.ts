@@ -33,7 +33,14 @@ import { HighchartsChartModule } from 'highcharts-angular';
 import { CommonModule } from '@angular/common';
 import { TimeentryComponent } from './screens/developer/components/timeentry/timeentry.component';
 import { ReportComponent } from '../app/screens/admin/components/report/report.component';
+import { ConfigSettingsService } from './services/config-settings.service';
 
+
+export function initializeApp(appConfigService: ConfigSettingsService) {
+  return (): Promise<any> => { 
+    return appConfigService.load();
+  }
+}
 
 @NgModule({
   declarations: [
@@ -55,7 +62,6 @@ import { ReportComponent } from '../app/screens/admin/components/report/report.c
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    APP_INITIALIZER,
     MatTabsModule,
     MatCardModule,
     MatButtonModule,
@@ -74,7 +80,13 @@ import { ReportComponent } from '../app/screens/admin/components/report/report.c
     MatListModule,
     HighchartsChartModule
   ],
-  providers: [{provide: MAT_DATE_LOCALE, useValue: 'en-GB'}, CookieService ],
-  bootstrap: [AppComponent]
+  
+  providers: [
+    ConfigSettingsService,
+    {provide: MAT_DATE_LOCALE, useValue: 'en-GB'},
+    {provide: APP_INITIALIZER,useFactory: initializeApp, deps: [ConfigSettingsService], multi: true}],
+     bootstrap: [AppComponent]
 })
+
+
 export class AppModule {}
