@@ -22,7 +22,7 @@ export class VerifyComponent implements OnInit {
   role: any;
 
   ngOnInit() {
-   this.employeeService.developerName.subscribe(name => {
+    this.employeeService.developerName.subscribe(name => {
       this.userName = name
     });
 
