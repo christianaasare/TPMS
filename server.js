@@ -7,7 +7,8 @@ const cookieSession = require("cookie-session");
 const cookieParser = require("cookie-parser");
 let userEmail = "";
 const app = express();
-
+ const PROJECT = process.env.PROJECT
+const EMPLOYEE = process.env.EMPLOYEE
 
 app.use(express.static(__dirname + "/dist/tpms"));
 
