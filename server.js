@@ -7,6 +7,7 @@ const cookieSession = require("cookie-session");
 const cookieParser = require("cookie-parser");
 let userEmail = "";
 const app = express();
+z
 
 app.use(express.static(__dirname + "/dist/tpms"));
 
@@ -26,7 +27,9 @@ passport.use(
   new SamlStrategy(
     {
       protocol: "https://",
-      entryPoint: process.env.ENTRY_POINT, 
+      entryPoint: process.env.ENTRY_POINT,
+      PROJECT: process.env.PROJECT,
+      EMPLOYEE: process.env.EMPLOYEE, 
       issuer: process.env.ISSUER, 
       path: "/auth/saml/callback",
       cert: process.env.CERT
