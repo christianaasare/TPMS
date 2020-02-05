@@ -92,7 +92,7 @@ export class VerifyComponent implements OnInit {
                       this.isLoading = false;
                       this.router.navigate(["developer/projects"]);
                       break;
-                    default:
+                      default:
                       break;
                   }
                 }

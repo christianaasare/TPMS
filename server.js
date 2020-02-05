@@ -7,8 +7,7 @@ const cookieSession = require("cookie-session");
 const cookieParser = require("cookie-parser");
 let userEmail = "";
 const app = express();
-const PROJECT = process.env.PROJECT
-const EMPLOYEE = process.env.EMPLOYEE
+
 
 app.use(express.static(__dirname + "/dist/tpms"));
 
@@ -28,9 +27,7 @@ passport.use(
   new SamlStrategy(
     {
       protocol: "https://",
-      entryPoint: process.env.ENTRY_POINT,
-      PROJECT: process.env.PROJECT,
-      EMPLOYEE: process.env.EMPLOYEE, 
+      entryPoint: process.env.ENTRY_POINT, 
       issuer: process.env.ISSUER, 
       path: "/auth/saml/callback",
       cert: process.env.CERT
@@ -93,8 +90,23 @@ app.all("*", function (req, res, next) {
     res.redirect("/login");
   }
 });
+
+app.get('/employee_service',(req, res) => {
+  res.json({url: process.env.EMPLOYEE})
+});
+
+app.get('/project_service',(req, res) => {
+  res.json({url: process.env.PROJECT})
+});
+
 app.get("/*", function (req, res) {
   res.sendFile(path.join(__dirname + "/dist/tpms/index.html"));
+});
+
+
+
+app.get('project_service',(req, res) => {
+  res.json({url: process.env.PROJECT})
 });
 
 app.listen(process.env.PORT || 8081);
