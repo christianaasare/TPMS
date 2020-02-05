@@ -1,25 +1,27 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from "rxjs";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
-import { ConfigSettingsService } from './config-settings.service';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class EmployeeService {
-  private employeeapi = ConfigSettingsService.settings.apiServer.employee;
+
 
   private messageSource = new BehaviorSubject("");
   developerName = this.messageSource.asObservable();
-  // private developerService = "https://employee.services.turntabl.io";
-  constructor(private http: HttpClient) {}
+
+  constructor(private http: HttpClient) {this.http.get<any>(window.location.origin +'/employee_service').
+  subscribe(res =>{sessionStorage.setItem('url',res.url)
+  })}
 
   changeMessage(message: string) {
     this.messageSource.next(message);
   }
   getEmployeeRole(email: string): Observable<any> {
     return this.http.get<any>(
-      this.employeeapi + "/v1/api/login/" + email
+      sessionStorage.get('url') + "/v1/api/login/" + email
     );
   }
 
@@ -28,17 +30,17 @@ export class EmployeeService {
     let headers = new HttpHeaders({'Content-Type':'application/json'});
    
     return this.http.post<any>(
-      this.employeeapi + '/v1/api/employee',body,{headers: headers} );
+      sessionStorage.get('url')  + '/v1/api/employee',body,{headers: headers} );
   }
   getLoggedHours(): Observable<any[]> {
-    return this.http.get<any[]>(this.employeeapi + "log");
+    return this.http.get<any[]>(sessionStorage.get('url') + "log");
   }
   getLoggedHoursForDev(empId: string): Observable<any[]> {
     return this.http.get<any[]>(
-      this.employeeapi + "projectlogged/dev/" + empId
+      sessionStorage.get('url')  + "projectlogged/dev/" + empId
     );
   }
   getDevelopers(): Observable<any> {
-    return this.http.get<any>(this.employeeapi + "/v1/api/employees");
+    return this.http.get<any>( sessionStorage.get('url')  + "/v1/api/employees");
   }
 }
