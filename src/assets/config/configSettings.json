@@ -4,8 +4,8 @@
         },
          
         "apiServer" : {
-            "project" :"process.env.PROJECT",
-            "employee" :"process.env.EMPLOYEE"
+            "project" :"https://project.services.turntabl.io",
+            "employee" :"https://project.services.turntabl.io"
         }
     }
     
