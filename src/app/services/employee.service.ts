@@ -21,7 +21,7 @@ export class EmployeeService {
   }
   getEmployeeRole(email: string): Observable<any> {
     return this.http.get<any>(
-      sessionStorage.get('url') + "/v1/api/login/" + email
+      sessionStorage.getItem('url') + "/v1/api/login/" + email
     );
   }
 
@@ -30,17 +30,17 @@ export class EmployeeService {
     let headers = new HttpHeaders({'Content-Type':'application/json'});
    
     return this.http.post<any>(
-      sessionStorage.get('url')  + '/v1/api/employee',body,{headers: headers} );
+      sessionStorage.getItem('url')  + '/v1/api/employee',body,{headers: headers} );
   }
   getLoggedHours(): Observable<any[]> {
     return this.http.get<any[]>(sessionStorage.get('url') + "log");
   }
   getLoggedHoursForDev(empId: string): Observable<any[]> {
     return this.http.get<any[]>(
-      sessionStorage.get('url')  + "projectlogged/dev/" + empId
+      sessionStorage.getItem('url')  + "projectlogged/dev/" + empId
     );
   }
   getDevelopers(): Observable<any> {
-    return this.http.get<any>( sessionStorage.get('url')  + "/v1/api/employees");
+    return this.http.get<any>( sessionStorage.getItem('url')  + "/v1/api/employees");
   }
 }

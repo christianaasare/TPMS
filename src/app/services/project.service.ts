@@ -25,14 +25,14 @@ export class ProjectService {
     let body = JSON.stringify(requestBody);
     let headers = new HttpHeaders({ "Content-Type": "application/json" });
 
-    return this.http.post<any>(sessionStorage.get('url') + "/v1/api/project", body, {
+    return this.http.post<any>(sessionStorage.getItem('url') + "/v1/api/project", body, {
       headers: headers
     });
   }
 
   assignProjectToEmployee(project_id, employee_id): Observable<any> {
     return this.http.get<any>(
-      sessionStorage.get('url') +
+      sessionStorage.getItem('url') +
         "/v1/api/project/" +
         project_id +
         "/assign/employee/" +
@@ -41,12 +41,12 @@ export class ProjectService {
   }
 
   getProject(): Observable<any> {
-    return this.http.get<any>(sessionStorage.get('url') + "/v1/api/projects");
+    return this.http.get<any>(sessionStorage.getItem('url') + "/v1/api/projects");
   }
 
   getAssignedProjects(employee_id: string): Observable<any> {
     return this.http.get<any>(
-      sessionStorage.get('url') + "/v1/api/projects/assigned/employee/" + employee_id
+      sessionStorage.getItem('url') + "/v1/api/projects/assigned/employee/" + employee_id
     );
   }
 
