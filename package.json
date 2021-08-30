@@ -38,7 +38,7 @@
     "ngx-bootstrap": "^5.3.2",
     "ngx-cookie-service": "^2.3.0",
     "passport": "^0.4.1",
-    "passport-saml": "^1.2.0",
+    "passport-saml": "^3.1.0",
     "path": "^0.12.7",
     "rxjs": "~6.4.0",
     "tslib": "^1.10.0",
